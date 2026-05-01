@@ -31,6 +31,8 @@ public:
 private:
     void moveTo(int newX, int newY);
     void recordPosition();
+    private:
+    int moveCount = 0;
 
     static const int gridSize = 5;
     std::string name_;

@@ -1,4 +1,5 @@
 #include "model/Robot.h"
+#include <iostream>
 
 #include <fstream>
 
@@ -26,20 +27,47 @@ const std::vector<Point2D>& Robot::getHistory() const {
 }
 
 void Robot::moveUp() {
-    moveTo(x, y - 1);
+    moveCount++;
+    std::cout << "Move count: " << moveCount << std::endl;
+    int step =(moveCount>=10) ? 2:1;
+    for (int i = 0; i < step; i++) {
+        moveTo(x, y - 1);
+    }
+
+    
 }
 
 void Robot::moveDown() {
-    moveTo(x, y + 1);
+    moveCount++;
+    int step = (moveCount >= 10) ? 2 : 1;
+
+    for (int i = 0; i < step; i++) {
+        moveTo(x, y + 1);
+    }
+    
 }
 
 void Robot::moveLeft() {
-    moveTo(x - 1, y);
+    moveCount++;
+
+    int step = (moveCount >= 10) ? 2 : 1;
+
+    for (int i = 0; i < step; i++) {
+        moveTo(x - 1, y);
+    }
 }
 
 void Robot::moveRight() {
-    moveTo(x + 1, y);
+    moveCount++;
+    int step = (moveCount >= 10) ? 2 : 1;
+
+    for (int i = 0; i < step; i++) {
+        moveTo(x + 1, y);
+    }
 }
+
+    
+
 
 void Robot::undo() {
     if (!canUndo()) {

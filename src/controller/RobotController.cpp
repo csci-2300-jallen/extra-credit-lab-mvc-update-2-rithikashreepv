@@ -95,32 +95,33 @@ void RobotController::loadHistory() {
 }
 
 bool RobotController::handleKeyPress(QKeyEvent* event) {
-    if (event->key() == Qt::Key_Up) {
+    int key = event->key();
+    if (key == Qt::Key_W) {
         moveUp();
         return true;
     }
 
-    if (event->key() == Qt::Key_Down) {
+    if (key  == Qt::Key_S) {
         moveDown();
         return true;
     }
 
-    if (event->key() == Qt::Key_Left) {
+    if (key  == Qt::Key_A) {
         moveLeft();
         return true;
     }
 
-    if (event->key() == Qt::Key_Right) {
+    if (key == Qt::Key_D) {
         moveRight();
         return true;
     }
 
-    if (event->key() == Qt::Key_Z && event->modifiers() == Qt::ControlModifier) {
+    if (key == Qt::Key_Z && event->modifiers() == Qt::ControlModifier) {
         undo();
         return true;
     }
 
-    if (event->key() == Qt::Key_Y && event->modifiers() == Qt::ControlModifier) {
+    if (key == Qt::Key_Y && event->modifiers() == Qt::ControlModifier) {
         redo();
         return true;
     }
