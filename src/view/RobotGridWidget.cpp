@@ -1,4 +1,5 @@
 #include "view/RobotGridWidget.h"
+#include <QKeyEvent>
 
 #include <QGridLayout>
 #include <QLabel>
@@ -7,6 +8,7 @@
 
 RobotGridWidget::RobotGridWidget(QWidget* parent)
     : QWidget(parent), robotIcon("assets/robot-icon.png") {
+    setFocusPolicy(Qt::StrongFocus);
     if (robotIcon.isNull()) {
         robotIcon.load("../assets/robot-icon.png");
     }

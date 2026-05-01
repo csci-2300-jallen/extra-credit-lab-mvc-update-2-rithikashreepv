@@ -2,13 +2,16 @@
 
 #include <QPixmap>
 #include <QWidget>
+#include <QKeyEvent>                         
+
+#include "controller/RobotController.h"      
 
 class QLabel;
 
 class RobotGridWidget : public QWidget {
 public:
     RobotGridWidget(QWidget* parent = nullptr);
-
+    void setController(RobotController* ctrl); 
     void setRobotPosition(int newX, int newY);
 
 private:
@@ -20,4 +23,5 @@ private:
     int y = 2;
     QPixmap robotIcon;
     QLabel* cells[gridSize][gridSize];
+    RobotController* controller = nullptr; 
 };
